@@ -1,0 +1,137 @@
+<html>
+<head>
+    <script type="text/javascript" src="../vis-4.17.0/vis-4.17.0/dist/vis.js"></script>
+    <link href="../vis-4.17.0/vis-4.17.0/dist/vis.css" rel="stylesheet" type="text/css" />
+
+    <style type="text/css">
+        #mynetwork {
+            width: 1000px;
+            height: 800px;
+            border: 1px solid lightgray;
+        }
+    </style>
+</head>
+<body>
+<div id="mynetwork"></div>
+
+<script type="text/javascript">
+
+    var ola = function(){
+        alert('olá');
+    }
+    // create an array with nodes
+    var nodes = new vis.DataSet([
+        {id: 1, label: 'FiltroConsultaVO' , color: '#f5f5f5',isClass:true},
+        {id: 2, label: '1', color: '#4078c0', text:'sistemaOrigem' , isClass:false},
+        {id: 3, label: '2', color: '#4078c0', text:'tipoSolicitacao', isClass:false},
+        {id: 4, label: '3', color: '#4078c0', text:'codigoSegurado', isClass:false},
+        {id: 5, label: '4', color: '#4078c0', text:'codigoReferenciado', isClass:false},
+        {id: 6, label: '5', color: '#4078c0', text:'codigoTabela', isClass:false},
+        {id: 7, label: '5', color: '#4078c0', text:'codigoProcedimento', isClass:false},
+        {id: 8, label: '6', color: '#4078c0', text:'dataExcecucao', isClass:false},
+        {id: 9, label: '7', color: '#4078c0', text:'dataExcecucao', isClass:false},
+        {id: 10, label: '8', color: '#4078c0', text:'recemNascido', isClass:false},
+        {id: 11, label: '9', color: '#4078c0', text:'indParturiente', isClass:false},
+        {id: 12, label: '10', color: '#4078c0', text:'grau', isClass:false},
+        {id: 13, label: '11', color: '#4078c0', text:'tipoAtendimentoSegurado', isClass:false },
+        {id: 14, label: '12', color: '#4078c0', text:'tipoCirurgia', isClass:false},
+        {id: 15, label: '13', color: '#4078c0', text:'codigoCobertura',isClass:false},
+        {id: 16, label: '14', color: '#4078c0', text:'caraterAtendimento', isClass:false},
+        {id: 17, label: 'pessoa', color: '#f5f5f5', text:'pessoa', isClass:true},
+        {id: 18, label: '16', color: '#4078c0', text:'nome', isClass:false},
+        {id: 19, label: '17', color: '#4078c0', text:'sobrenome', isClass:false},
+        {id: 20, label: '18', color: '#4078c0', text:'apelido', isClass:false},
+        
+
+    ]);
+
+    // create an array with edges
+    var edges = new vis.DataSet([
+        {from: 1, to: 3},
+        {from: 1, to: 2},
+        {from: 1, to: 4},
+        {from: 1, to: 5},
+        {from: 1, to: 6},
+        {from: 1, to: 7},
+        {from: 1, to: 8},
+        {from: 1, to: 9},
+        {from: 1, to: 10},
+        {from: 1, to: 11},
+        {from: 1, to: 12},
+        {from: 1, to: 13},
+        {from: 1, to: 14},
+        {from: 1, to: 15},
+        {from: 1, to: 16},
+        {from: 1, to: 17},
+        {from: 17, to: 18},
+        {from: 17, to: 19},
+        {from: 17, to: 20}
+    ]);
+
+    var dados = {}
+
+
+
+    // create a network
+    var container = document.getElementById('mynetwork');
+
+    // provide the data in the vis format
+    var data = {
+        nodes: nodes,
+        edges: edges
+    };
+    var layoutMethod = "directed";
+
+
+    var options = { 
+        layout: {
+          hierarchical: {
+            sortMethod: layoutMethod
+          }
+        },
+        edges: {
+          smooth: true,
+          arrows: {to : true }
+        }
+ 
+            
+    };
+
+
+
+
+
+    // initialize your network!
+    var network = new vis.Network(container, data, options);
+    network.on( 'click', function(properties) {
+        //data.update({id: 1, text: 'item 1 (updated)'});
+        //console.log(data.nodes.get(properties.nodes));
+        var arr = data.nodes.get(properties.nodes);
+        if(typeof arr ==='object' && arr instanceof Array ){
+           if(!arr.length){
+              console.log('empty')
+           }else{
+              var isClass = data.nodes.get(properties.nodes)[0].isClass
+              var text = data.nodes.get(properties.nodes)[0].text
+              var label = data.nodes.get(properties.nodes)[0].label
+
+              if(!isClass){
+                  data.nodes.update({id:properties.nodes, label: text})
+                  data.nodes.update({id:properties.nodes, text: label})
+              }
+           }
+
+        }
+
+    });
+
+    network.on( 'doubleClick', function(properties) {
+        //data.update({id: 1, text: 'item 1 (updated)'});
+        //console.log(data.nodes.get(properties.nodes));
+        console.log("DOUBLE");
+       
+    });
+//    network.setOptions(optionsNodes);
+</script>
+</body>
+</html>

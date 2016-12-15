@@ -1,0 +1,22 @@
+{
+  "name": "MockService",
+  "authors": [
+    "DanielDanteDosSantosViana <danielvianarj@gmail.com>"
+  ],
+  "description": "Projeto para Mock de Servicos EJB",
+  "main": "index.html",
+  "moduleType": [],
+  "keywords": [
+    "mock",
+    "ejb"
+  ],
+  "license": "MIT",
+  "homepage": "www.danielddsv.com.br",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

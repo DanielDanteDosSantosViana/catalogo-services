@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="msapplication-tap-highlight" content="no">
+    <meta name="description" content="Materialize is a modern responsive CSS framework based on Material Design by Google. ">
+    <title>CBTI - Serviços</title>
+    <!-- Favicons-->
+    <link rel="icon" href="images/favicon/favicon.ico" sizes="32x32">
+    <!--  Android 5 Chrome Color-->
+    <meta name="theme-color" content="#EE6E73">
+    <!-- CSS-->
+    <link href="css/prism.css" rel="stylesheet">
+    <link href="css/ghpages-materialize.css" type="text/css" rel="stylesheet" media="screen,projection">
+    <link href="http://fonts.googleapis.com/css?family=Inconsolata" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script>
+      window.liveSettings = {
+        api_key: "a0b49b34b93844c38eaee15690d86413",
+        picker: "bottom-right",
+        detectlang: true,
+        dynamic: true,
+        autocollect: true
+      };
+    </script>
+        <style type="text/css">
+   
+        #mynetwork {
+            width: 100%;
+            height: 600px;
+            border: 1px solid lightgray;
+        }
+    #mynetwork table.legend_table {
+      font-size: 11px;
+      border-width:1px;
+      border-color:#d3d3d3;
+      border-style:solid;
+    }
+    #mynetwork table.legend_table,td {
+      border-width:1px;
+      border-color:#d3d3d3;
+      border-style:solid;
+      padding: 2px;
+    }
+    #mynetwork div.table_content {
+      width:80px;
+      text-align:center;
+    }
+    #mynetwork div.table_description {
+      width:100px;
+    }
+
+    #operation {
+      font-size:28px;
+    }
+    #network-popUp {
+      display:none;
+      position:relative;
+      top:350px;
+      left:170px;
+      z-index:299;
+      width:250px;
+      height:120px;
+      background-color: #f9f9f9;
+      border-style:solid;
+      border-width:3px;
+      border-color: #5394ed;
+      padding:10px;
+      text-align: center;
+      font: 10pt sans;
+
+
+    }
+
+    </style>
+       <script type="text/javascript" src="vis-4.17.0/vis-4.17.0/dist/vis.js"></script>
+    <link href="vis-4.17.0/vis-4.17.0/dist/vis.css" rel="stylesheet" type="text/css" />
+
+  </head>
+  <body>
+    <header>
+      <nav class="top-nav">
+        <div class="container">
+          <div class="nav-wrapper"><a class="page-title">EJB - Manutenção</a></div>
+        </div>
+      </nav>
+      <div class="container"><a href="#" data-activates="nav-mobile" class="button-collapse top-nav waves-effect waves-light circle hide-on-large-only"><i class="material-icons">menu</i></a>
+      </div>
+      <ul id="nav-mobile" class="side-nav fixed">
+        <li class="logo"><a id="logo-container" href="index.html" class="brand-logo">
+            <img  src="images/caplogo.jpg"></img>
+            </a>
+        </li>
+        <li class="search">
+          <div class="search-wrapper card">
+            <input id="search"><i class="material-icons">search</i>
+            <div class="search-results"></div>
+          </div>
+        </li>
+        <li class="no-padding">
+          <ul class="collapsible collapsible-accordion">
+            <li class="bold"><a class="collapsible-header  waves-effect waves-teal">CICS</a>
+              <div class="collapsible-body">
+                <ul>
+                  <li><a href="cadastrocics.html">Manutenção</a></li>
+                </ul>
+              </div>
+            </li>
+            <li class="bold"><a class="collapsible-header  waves-effect waves-teal">EJB</a>
+              <div class="collapsible-body">
+                <ul>
+                  <li><a href="cadastroejb.html">Manutenção</a></li>
+                </ul>
+              </div>
+            </li>            
+            <li class="bold"><a class="collapsible-header  waves-effect waves-teal">GD</a>
+              <div class="collapsible-body">
+                <ul>
+                  <li><a href="gdcadastro.html">Cadastro</a></li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </li>
+       </ul> 
+    </header>
+    <main>
+    <div class="container">
+      <div class="row">
+        <div class="col s12 m9 l10">
+           <div id="color-usage" class="section scrollspy">
+             <div>
+             <label>Sistema</label>
+              <select class="browser-default">
+                <option value="" disabled selected>Selecione</option>
+                <option value="1">CBTI</option>
+                <option value="2">SISB</option>
+              </select>
+             </div>
+             <div>
+             <label>GD</label>
+              <select class="browser-default">
+                <option value="" disabled selected>Selecione</option>
+                <option value="1">GD 20016-0001748 - 11/11/2016</option>
+                <option value="2">GD 20016-0001748 - 11/11/2016</option>
+                <option value="3">GD 20016-0001748 - 11/11/2016</option>
+              </select>
+             </div>
+             <label>Tipo de dados</label>
+              <select class="browser-default">
+                <option value="" disabled selected>Selecione</option>
+                <option value="1">Entrada</option>
+                <option value="2">Retorno</option>
+                <option value="3">Todos</option>
+              </select>
+             </div>
+             <div>
+                <div class="row">
+                   <div class="col s6">
+                     <button class="btn waves-effect waves-light" onclick="showEJB()" type="submit" name="action">Show
+                        <i class="material-icons right" >send</i>
+                       </button>
+                   </div>
+                   <div class="col s6">
+                   <button class="btn waves-effect waves-light" onclick="showEJB()" type="submit" name="action">Save
+                <i class="material-icons right" >send</i>
+               </button>
+                   </div>
+                </div> 
+             </br>
+
+    <div id="modalcadastro" class="modal modal-fixed-footer" style="z-index: 1003; display: none; opacity: 0; transform: scaleX(0.7); top: 250.516px;">
+          <div class="modal-content">
+            <h4>Adicionar Class</h4>
+                <div class="row">
+                  <form class="col s8">
+                    <div class="row">
+                      <div class="input-field col s6">
+                        <input placeholder="Nome" id="nomeClass" type="text">
+                        <label for="nome">Nome</label>
+                      </div>
+                      <div class="input-field col s6">
+                        <input placeholder="Nome do campo(Java)" id="nomeJavaClass" type="text">
+                        <label for="nomeJavaClass">Nome do campo(Java)</label>
+                      </div>
+                    </div> 
+                    <div class="row">
+                          <div class="input-field col s6">
+                            <input placeholder="Número de caracteres" id="tamanho" type="text">
+                            <label for="tamanho">Tamanho</label>
+                          </div>
+                    </div>
+                    <div class="row">
+                      <div class="input-field col s12">
+                        <textarea id="textarea1" class="materialize-textarea" length="120"></textarea>
+                        <label for="textarea1">Descrição</label>
+                      </div>
+                    </div>                    
+                  </form>
+                </div>
+
+        </div>
+           <div class="modal-footer">
+                <a href="#!" class="modal-action modal-close waves-effect waves-red btn-flat ">Close</a>
+                <a href="#!" id="saveClass" class="modal-action modal-close waves-effect waves-green btn-flat ">Save</a>
+            </div>
+
+      </div> 
+
+
+             <div id="mynetwork">
+             </div>
+           </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="modal3" class="modal bottom-sheet" style="z-index: 1003; display: none; opacity: 0; bottom: -100%;">
+          <div class="modal-content">
+            <h4>Class: FiltroConsultaVO</h4>
+              <table class="highlight">
+                <thead>
+                  <tr>
+                      <th></th>
+                      <th data-field="id">Nome do Campo (Java) </th>
+                      <th data-field="name">Tipo do Campo </th>
+                      <th data-field="name">Tamanho </th>
+                      <th data-field="name">Status</th>
+                      <th data-field="name">Ação<br></th>
+
+                  </tr>
+                </thead>
+                  <tbody>
+                  <tr>
+                    <td><strong>Cartão Segurado</strong></td>
+                    <td><code class="language-markup">codigoSegurado</code></td>
+                    <td><code class="language-markup">Long</code></td>
+                    <td><code class="language-markup"></code></td>
+                    <td><span class="new badge"></span></td>
+                    <td><a class="waves-effect waves-teal btn-flat"> <i class="material-icons">mode_edit</i></a><a class="waves-effect waves-teal btn-flat" onclick="dtlDescricao()"><i class="material-icons">comment</i></a></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Tipo Solicitacao</strong></td>
+                    <td><code class="language-markup">tipoSolicitacao</code></td>
+                    <td><code class="language-markup">String</code></td>
+                    <td><code class="language-markup"></code></td>
+                    <td></td>
+                    <td><a class="waves-effect waves-teal btn-flat"> <i class="material-icons">mode_edit</i></a><a class="waves-effect waves-teal btn-flat" onclick="dtlDescricao()"><i class="material-icons">comment</i></a></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Código do Referenciado</strong></td>
+                    <td><code class="language-markup">codigoReferenciado</code></td>
+                    <td><code class="language-markup">Long</code></td>
+                    <td><code class="language-markup"></code></td>
+                    <td><span class="new badge"></span></td>
+                    <td><a class="waves-effect waves-teal btn-flat"> <i class="material-icons">mode_edit</i></a><a class="waves-effect waves-teal btn-flat" onclick="dtlDescricao()"><i class="material-icons">comment</i></a></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Tipo Carater</strong></td>
+                    <td><code class="language-markup">tipoCarater</code></td>
+                    <td><code class="language-markup">String</code></td>
+                    <td><code class="language-markup"></code></td>
+                    <td></td>
+                    <td><a class="waves-effect waves-teal btn-flat"> <i class="material-icons">mode_edit</i></a><a class="waves-effect waves-teal btn-flat" onclick="dtlDescricao()"><i class="material-icons">comment</i></a></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Código Tabela</strong></td>
+                    <td><code class="language-markup">codigoTabela</code></td>
+                    <td><code class="language-markup">Long</code></td>
+                    <td><code class="language-markup"></code></td>
+                    <td></td>
+                    <td><a class="waves-effect waves-teal btn-flat"> <i class="material-icons">mode_edit</i></a><a class="waves-effect waves-teal btn-flat" onclick="dtlDescricao()"><i class="material-icons">comment</i></a></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Código Procedimento</strong></td>
+                    <td><code class="language-markup">codigoProcedimento</code></td>
+                    <td><code class="language-markup">Long</code></td>
+                    <td><code class="language-markup"></code></td>
+                     <td><span class="new badge"></span></td>
+                    <td><a class="waves-effect waves-teal btn-flat"> <i class="material-icons">mode_edit</i></a><a class="waves-effect waves-teal btn-flat" onclick="dtlDescricao()"><i class="material-icons">comment</i></a></td>
+                 </tr>
+                  <tr>
+                    <td><strong>Descrição Procedimento</strong></td>
+                    <td><code class="language-markup">descricaoProcedimento</code></td>
+                    <td><code class="language-markup">String</code></td>
+                    <td><code class="language-markup"></code></td>
+                    <td><span class="new badge"></span></td>
+                    <td><a class="waves-effect waves-teal btn-flat"> <i class="material-icons">mode_edit</i></a><a class="waves-effect waves-teal btn-flat" onclick="dtlDescricao()"><i class="material-icons">comment</i></a></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Código Cobertura</strong></td>
+                    <td><code class="language-markup">codigoCobertura</code></td>
+                    <td><code class="language-markup">Long</code></td>
+                    <td><code class="language-markup"></code></td>
+                    <td><span class="new badge"></span></td>
+                    <td><a class="waves-effect waves-teal btn-flat"> <i class="material-icons">mode_edit</i></a><a class="waves-effect waves-teal btn-flat" onclick="dtlDescricao()"><i class="material-icons">comment</i></a></td>
+                  </tr>
+                  <tr>
+                    <td><strong>Cartão Segurado</strong></td>
+                    <td><code class="language-markup">cartaoSegurado</code></td>
+                    <td><code class="language-markup">Long</code></td>
+                    <td><code class="language-markup"></code></td>
+                    <td><span class="new badge"></span></td>
+                    <td><a class="waves-effect waves-teal btn-flat"> <i class="material-icons">mode_edit</i></a><a class="waves-effect waves-teal btn-flat" onclick="dtlDescricao()"><i class="material-icons">comment</i></a></td>
+                  </tr>
+                </tbody>
+              </table>
+                 <div class="fixed-action-btn horizontal">
+                           <a class="btn-floating btn-large red" onclick="criar()">
+                             <i class="large material-icons">add</i>
+                           </a>
+                 </div>
+           </div>
+
+    </div>
+    <div id="modal2" class="modal modal-fixed-footer" style="z-index: 1003; display: none; opacity: 0; transform: scaleX(0.7); top: 250.516px;">
+          <div class="modal-content">
+            <h4>Adicionar Attributo</h4>
+                <div class="row">
+                  <form class="col s8">
+                    <div class="row">
+                      <div class="input-field col s6">
+                        <input placeholder="Nome" id="nome" type="text">
+                        <label for="nome">Nome</label>
+                      </div>
+                      <div class="input-field col s6">
+                        <input placeholder="Nome do campo(Java)" id="nome_atributo" type="text">
+                        <label for="nome_atributo">Nome do campo(Java)</label>
+                      </div>
+                    </div> 
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <select>
+                              <option value="" disabled selected>Escolha o tipo</option>
+                              <option value="1">Byte</option>
+                              <option value="2">Short</option>
+                              <option value="8">String</option>
+                              <option value="3">Integer</option>
+                              <option value="4">Long</option>
+                              <option value="5">Float</option>
+                              <option value="6">Double</option>
+                              <option value="7">Object</option>
+                              <option value="8">Character</option>
+                              <option value="9">Boolean</option>
+                              <option value="9">Collection</option>
+                              <option value="1">byte - primitivo</option>
+                              <option value="2">short - primitivo</option>
+                              <option value="3">int - primitivo</option>
+                              <option value="4">long - primitivo</option>
+                              <option value="5">float - primitivo</option>
+                              <option value="6">double - primitivo</option>
+                              <option value="8">char - primitivo</option>
+                              <option value="9">boolean - primitivo</option>
+                            </select>
+                            <label>Tipo do campo</label>
+                          </div>
+                          <div class="input-field col s6">
+                            <input placeholder="Número de caracteres" id="tamanho" type="text">
+                            <label for="tamanho">Tamanho</label>
+                          </div>
+                    </div>
+                    <div class="row">
+                      <div class="input-field col s12">
+                        <textarea id="textarea1" class="materialize-textarea" length="120"></textarea>
+                        <label for="textarea1">Descrição</label>
+                      </div>
+                    </div>                    
+                  </form>
+                </div>
+
+        </div>
+           <div class="modal-footer">
+                <a href="#!" class="modal-action modal-close waves-effect waves-red btn-flat ">Close</a>
+                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Save</a>
+            </div>
+
+      </div> 
+      <div id="modal1" class="modal">
+          <div class="modal-content">
+            <h4>Descrição do Campo</h4>
+            <p>O campo é bla bla bla......... bla bla bla bla...</p>
+          </div>
+          <div class="modal-footer">
+            <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">OK</a>
+          </div>
+      </div>   
+
+    <a id="showBtn"class="waves-effect waves-light btn" href="#modal3" style="display: none"></a>
+    <a id="modalCriar" class="waves-effect waves-light btn"href="#modal2"  style="display: none"></a>
+    <a id="dtlDescricao" class="waves-effect waves-light btn"href="#modal1"  style="display: none"></a>
+    <a id="dtCadastro" href="#modalcadastro" style="display: none"></a>
+
+</main>    
+    <script type="text/javascript">
+
+   var criar = function(){
+           document.getElementById("modalCriar").click(); 
+
+   } 
+   var dtlDescricao = function(){
+           document.getElementById("dtlDescricao").click(); 
+
+   }      
+   var showEJB =  function(){
+    // create an array with nodes
+    var nodes = new vis.DataSet([
+        {id: 1, label: 'FiltroConsultaVO' , color: '#f5f5f5',isClass:true},
+        {id: 2, label: 'pessoa', color: '#f5f5f5', text:'pessoa', isClass:true},
+    ]);
+
+    // create an array with edges
+    var edges = new vis.DataSet([
+        {from: 1, to: 2},
+    ]);
+
+    var dados = {}
+
+
+
+    // create a network
+    var container = document.getElementById('mynetwork');
+
+    // provide the data in the vis format
+    var data = {
+        nodes: nodes,
+        edges: edges
+    };
+    var layoutMethod = "directed";
+
+
+    var options = { 
+        layout: {
+          hierarchical: {
+            sortMethod: layoutMethod
+          }
+        },
+        edges: {
+          smooth: true,
+          arrows: {to : true }
+        },
+
+        manipulation: {
+          addNode: function (data, callback) {
+            // filling in the popup DOM elements
+           document.getElementById("dtCadastro").click();
+           document.getElementById("nomeClass").value = data.label;
+           //document.getElementById("descricao").value = data.label;
+           document.getElementById('saveClass').onclick = saveData.bind(this, data, callback);
+
+          },
+           addEdge: function (data, callback) {
+            if (data.from == data.to) {
+              var r = confirm("Tem certeza que deseja fazer um auto-relacionamento ?");
+              if (r == true) {
+                callback(data);
+              }
+            }
+            else {
+              callback(data);
+            }
+          }
+        }           
+    };
+
+    function saveData(data,callback) {
+      data.label = document.getElementById("nomeClass").value;
+      data.color ='#f5f5f5';
+      callback(data);
+    }
+
+    // initialize your network!
+    var network = new vis.Network(container, data, options);
+
+    network.on( 'doubleClick', function(properties) {
+        //data.update({id: 1, text: 'item 1 (updated)'});
+       if(typeof properties.nodes ==='object' && properties.nodes instanceof Array ){
+           if(!properties.nodes.length){
+              console.log('Click fora do node');
+           }else{
+              document.getElementById("showBtn").click();
+           }
+
+        }else{
+           console.log("Está null o array!")
+        }
+    });
+
+}
+//    network.setOptions(optionsNodes);
+</script>
+    <!--  Scripts-->
+    <script src="dist/js/jquery-2.1.4.min.js"></script>
+    <script src="js/jquery.timeago.min.js"></script>
+    <script src="js/prism.js"></script>
+    <script src="jade/lunr.min.js"></script>
+    <script src="jade/search.js"></script>
+    <script src="bin/materialize.js"></script>
+    <script src="js/init.js"></script>
+  </body>
+</html>
+
+
+
